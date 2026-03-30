@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>queryselectorAll</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>SEVEN</li>
+        <li>EIGHT</li>
+        <li>NINE</li>
+    </ul>
+    <ul>
+        <li>SEVEN</li>
+        <li>EIGHT</li>
+        <li>NINE</li>
+    </ul>
+
+
+    <script>
+         document.querySelectorAll('ul')
+         const myul = document.querySelectorAll('ul')
+         myul.forEach((ul) => {
+             ul.style.background = 'red';
+             ul.style.color = 'yellow';
+
+         });
+
+        document.querySelectorAll('li')
+        const myli = document.querySelectorAll('li')
+        myli.forEach(function (item) {
+            item.style.background = 'green';
+            item.style.color = '#fff';
+
+        });
+    </script>
+</body>
+
+</html>

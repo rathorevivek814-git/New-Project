@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>queryseclorAll child </title>
+</head>
+
+<body>
+    <ul>
+        <li>FOUR</li>
+        <li>FIVE</li>
+        <li>SIX</li>
+    </ul>
+    <ul>
+        <li>FOUR</li>
+        <li>FIVE</li>
+        <li>SIX</li>
+    </ul>
+
+
+
+    <script>
+        document.querySelectorAll('ul')
+        const myul = document.querySelectorAll('ul');
+        console.log(myul);
+
+        document.querySelectorAll('li')
+        const myli = document.querySelectorAll('li');
+        myli[0].style.color = 'yellow'
+        console.log("result =", myli[0].textContent);
+        console.log("result =", myli[1].textContent);
+
+       /* function printText(li) {
+            console.log(li.textContent);
+        }
+
+        myli.forEach(printText);*/
+
+
+        /*myli.forEach((item) =>{
+        item.style.background='red';
+        item.style.margin='5px';
+
+        console.log(item.textContent);
+    });*/
+
+        myli.forEach(function (item) {
+            item.style.background = 'red';
+            item.style.margin = '5px';
+
+            //console.log(myli);
+           console.log(item.textContent);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEga menu</title>
+</head>
+<!-- <style>
+    .navbar {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        position: relative;
+    }
+
+    .mega-dropdown {
+        position: relative;
+    }
+
+    .mega-menu {
+       display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 600px;
+        background: white;
+        padding: 20px;
+        
+        border: 1px solid #ddd;
+    }
+
+    .mega-menu .column h4 {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    .mega-dropdown:hover .mega-menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .mega-menu a {
+        display: block;
+        margin: 4px 0;
+    }
+</style> -->
+<style>
+    ul.navbar {
+    display: flex;
+    list-style: none;
+     gap: 20px;
+}
+
+.mega-dropdown {
+    position: relative;
+}
+
+.column {
+    display: flex;
+    /* grid-template-columns: repeat(1, 6fr); */
+    flex-direction: column;
+}
+.mega-dropdown:hover .mega-menu  {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.mega-menu
+{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+</style>
+<body>
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+
+        <li class="mega-dropdown">
+            <a href="#">Products</a>
+
+            <div class="mega-menu">
+                <div class="column">
+                    <h4>Electronics</h4>
+                    <a href="#">Mobiles</a>
+                    <a href="#">Laptops</a>
+                    <a href="#">Cameras</a>
+                </div>
+
+                <div class="column">
+                    <h4>Fashion</h4>
+                    <a href="#">Men</a>
+                    <a href="#">Women</a>
+                    <a href="#">Kids</a>
+                </div>
+
+                <div class="column">
+                    <h4>Home</h4>
+                    <a href="#">Furniture</a>
+                    <a href="#">Decor</a>
+                    <a href="#">Kitchen</a>
+                </div>
+            </div>
+        </li>
+
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>panaroma with js and auto</title>
+</head>
+<style>
+    .pano-slider {
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 12px;
+        cursor: grab;
+    }
+
+    .pano-track {
+        display: flex;
+        width: 300%;
+        height: 100%;
+        transition: transform 0.8s ease;
+        /* SLOW + SMOOTH */
+        position: relative;
+    }
+
+    .pano-track img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+        /* image does not block pagination */
+    }
+
+    /* Pagination ALWAYS visible */
+    .pano-dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+        /* stay on top */
+    }
+
+    .pano-dots .dot {
+        width: 12px;
+        height: 12px;
+        background: #ffffff8c;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .pano-dots .active {
+        background: #fff;
+        transform: scale(1.25);
+    }
+</style>
+
+<body>
+    <div class="pano-slider">
+        <div class="pano-track">
+            <img src="https://picsum.photos/1200/400?1" />
+            <img src="https://picsum.photos/1200/400?2" />
+            <img src="https://picsum.photos/1200/400?3" />
+        </div>
+
+        <div class="pano-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const slider = document.querySelector(".pano-slider");
+        const track = document.querySelector(".pano-track");
+        const dots = document.querySelectorAll(".dot");
+
+        let index = 0;
+        let total = dots.length;
+
+        /* ---------- Auto Scroll (Slow) ---------- */
+        setInterval(() => {
+            index = (index + 1) % total;
+            updateSlider();
+        }, 4000); // 4 seconds slow slide
+
+
+        /* ---------- Update Slider ---------- */
+        function updateSlider() {
+            track.style.transform = `translateX(-${index * 100}%)`;
+
+            dots.forEach((d, i) => d.classList.toggle("active", i === index));
+        }
+
+
+        /* ---------- Dot Click ---------- */
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                index = i;
+                updateSlider();
+            });
+        });
+
+
+        /* ---------- Drag Slider ---------- */
+        let isDown = false;
+        let startX = 0;
+
+        slider.addEventListener("mousedown", (e) => {
+            isDown = true;
+            startX = e.pageX;
+        });
+
+        window.addEventListener("mouseup", () => {
+            isDown = false;
+        });
+
+        slider.addEventListener("mousemove", (e) => {
+            if (!isDown) return;
+
+            let diff = e.pageX - startX;
+
+            if (diff > 80 && index > 0) {
+                index--;
+                updateSlider();
+                isDown = false;
+            }
+
+            if (diff < -80 && index < total - 1) {
+                index++;
+                updateSlider();
+                isDown = false;
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

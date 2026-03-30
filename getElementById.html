@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementById convert into array for apply forEach loop</title>
+</head>
+
+<body>
+    <ul>
+        <li class="list-items"> Rainy</li>
+        <li class="list-items"> Summer</li>
+        <li class="list-items"> Winter</li>
+    </ul>
+
+
+    <script>
+        document.getElementsByClassName('list-items')
+        mylist = document.getElementsByClassName('list-items')
+
+        Array.from(mylist)
+        const myconvertArray = Array.from(mylist)
+
+        myconvertArray.forEach(function (item) {
+            console.log(item.innerText);
+        });
+
+    </script>
+</body>
+
+</html>

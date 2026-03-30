@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queryselector </title>
+</head>
+<style>
+
+</style>
+
+<body style="background-color: black; color:aliceblue" ;>
+
+    <ul>
+        <li>ONE </li>
+        <li>TWO </li>
+        <li>THREE</li>
+    </ul>
+    <ul id="ull">
+        <li>ONE </li>
+        <li>TWO </li>
+        <li>THREE</li>
+    </ul>
+
+
+
+    <script>
+        document.querySelector('ul')
+        const myul = document.querySelector('ul')
+        myul.style.background = 'red'
+
+        document.querySelector('li')
+        const myli = document.querySelector('li')
+        myli.style.background = 'green'
+        myli.style.color = '#fff'
+
+        document.querySelector('#ull li')
+        const myul_li = document.querySelector('#ull li')
+        myul_li.style.background = 'yellow'
+        myul_li.style.color = '#dcdcdc'
+        const $change = myul_li.textContent = "yes";
+        //myul_li.style.background = "red";
+        //myul_li.style.color = "yellow";
+        //myul_li.style.padding = "20px";
+        myul_li.style.cssText="background:red; color:yellow; padding:20px;"
+        console.log($change);
+
+    </script>
+</body>
+
+</html>
